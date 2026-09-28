@@ -43,4 +43,71 @@ venel-mcp plugin install Slack
 This command automatically unpacks the designated NuGet package and places it in the dynamic loading directory.
 
 ---
+## ⚡ Quick Start
+
+To run the ModularMCP Core server locally:
+
+```bash
+# 1. Clone the repository
+git clone https://github.com/venkateshellur/VenEl.ModularMCP.git
+cd VenEl.ModularMCP
+
+# 2. Build the Core Host
+dotnet build src/VenEl.ModularMCP.Core
+
+# 3. Install a Plugin (e.g., Slack)
+dotnet run --project src/VenEl.ModularMCP.Core -- plugin install Slack
+
+# 4. Start the Server
+dotnet run --project src/VenEl.ModularMCP.Core
+```
+
+## 📦 Available Official Plugins
+
+The following plugins are officially supported and available on NuGet.org. They can be installed dynamically into your Core engine:
+
+- `VenEl.ModularMCP.AWS`
+- `VenEl.ModularMCP.Azure`
+- `VenEl.ModularMCP.Atlassian`
+- `VenEl.ModularMCP.Bitwarden`
+- `VenEl.ModularMCP.Databricks`
+- `VenEl.ModularMCP.Docker`
+- `VenEl.ModularMCP.Email`
+- `VenEl.ModularMCP.FTP`
+- `VenEl.ModularMCP.GCP`
+- `VenEl.ModularMCP.GitHub`
+- `VenEl.ModularMCP.Kubernetes`
+- `VenEl.ModularMCP.LocalOffice`
+- `VenEl.ModularMCP.Logging`
+- `VenEl.ModularMCP.MSSql`
+- `VenEl.ModularMCP.MicrosoftTeams`
+- `VenEl.ModularMCP.Slack`
+- `VenEl.ModularMCP.WebAutomator`
+
+## 🛠️ Building a Custom Plugin
+
+Extending the ecosystem is incredibly easy. Just create a standard Class Library, reference `VenEl.ModularMCP.Shared`, and implement `IVenElPlugin`:
+
+```csharp
+using Microsoft.Extensions.DependencyInjection;
+using VenEl.ModularMCP.Shared;
+
+namespace MyCustomPlugin;
+
+public class MyPlugin : IVenElPlugin
+{
+    public string Name => "MyCustomPlugin";
+    public string Version => "1.0.0";
+
+    public void ConfigureServices(IServiceCollection services)
+    {
+        // Register your tool logic here!
+        services.AddSingleton<IMyCustomTool, MyCustomTool>();
+    }
+}
+```
+
+Pack it as a `.nupkg`, drop it into the `plugins/` directory of the Core host, and it will be loaded automatically!
+
+---
 *Built with ❤️ to push the boundaries of Agentic Tooling and the Model Context Protocol.*
