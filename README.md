@@ -4,6 +4,8 @@ Welcome to **VenEl.ModularMCP** — a highly extensible, dynamically loaded Mode
 
 This project introduces a "Hub-and-Spoke" architecture for deploying and consuming MCP tools. It is designed to act as a lightweight, scalable engine (the Hub) that discovers, loads, and executes modular plugins (the Spokes) entirely at runtime.
 
+> ⚠️ **Important Note for NuGet Users:** The `VenEl.ModularMCP.*` packages published to NuGet.org from this repository are **not standalone libraries**. They are dynamically-loaded plugin modules designed exclusively to be consumed by the VenEl.ModularMCP host engine.
+
 ## 🌟 The Vision: ModularMCP vs. AssistantMCP
 
 If you are familiar with our foundational project, **VenEl.AssistantMCP**, you know it is an incredibly powerful, all-in-one monolith. `AssistantMCP` is the ultimate "batteries-included" solution: it ships with all 17+ integrations (AWS, Azure, Docker, GitHub, Slack, MSSql, etc.) baked directly into a single unified server. It is perfect for deployments where you want a comprehensive suite of tools ready to go out-of-the-box.
