@@ -59,10 +59,9 @@ jobs:
       with:
         dotnet-version: '8.0.x'
         
-    - name: Pack All Modular Plugins
-      # We pack all .csproj files in src EXCEPT the Core (which is handled above as an executable)
+    - name: Pack All Projects (Core as Tool, Plugins as Libraries)
       run: |
-        for proj in $(find src -name "*.csproj" -not -name "VenEl.ModularMCP.Core.csproj"); do
+        for proj in $(find src -name "*.csproj"); do
           dotnet pack "$proj" -c Release -o nupkg
         done
       
