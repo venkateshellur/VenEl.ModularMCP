@@ -1,0 +1,193 @@
+build-and-publish-binaries (osx-x64)	UNKNOWN STEP	﻿2026-09-28T04:56:35.8006789Z Current runner version: '2.337.0'
+build-and-publish-binaries (osx-x64)	UNKNOWN STEP	2026-09-28T04:56:35.8022321Z ##[group]Runner Image Provisioner
+build-and-publish-binaries (osx-x64)	UNKNOWN STEP	2026-09-28T04:56:35.8023012Z Hosted Compute Agent
+build-and-publish-binaries (osx-x64)	UNKNOWN STEP	2026-09-28T04:56:35.8023363Z Version: 20260828.587
+build-and-publish-binaries (osx-x64)	UNKNOWN STEP	2026-09-28T04:56:35.8023734Z Commit: abac92662cab4cc7352de4f9f9d2e2419aad9c29
+build-and-publish-binaries (osx-x64)	UNKNOWN STEP	2026-09-28T04:56:35.8024210Z Build Date: 2026-08-28T16:44:25Z
+build-and-publish-binaries (osx-x64)	UNKNOWN STEP	2026-09-28T04:56:35.8024782Z Worker ID: {c27354cc-f217-4cc2-bc54-398af71883ef}
+build-and-publish-binaries (osx-x64)	UNKNOWN STEP	2026-09-28T04:56:35.8025242Z Azure Region: centralus
+build-and-publish-binaries (osx-x64)	UNKNOWN STEP	2026-09-28T04:56:35.8025593Z ##[endgroup]
+build-and-publish-binaries (osx-x64)	UNKNOWN STEP	2026-09-28T04:56:35.8026449Z ##[group]Operating System
+build-and-publish-binaries (osx-x64)	UNKNOWN STEP	2026-09-28T04:56:35.8026840Z Ubuntu
+build-and-publish-binaries (osx-x64)	UNKNOWN STEP	2026-09-28T04:56:35.8027200Z 24.04.5
+build-and-publish-binaries (osx-x64)	UNKNOWN STEP	2026-09-28T04:56:35.8027522Z LTS
+build-and-publish-binaries (osx-x64)	UNKNOWN STEP	2026-09-28T04:56:35.8027836Z ##[endgroup]
+build-and-publish-binaries (osx-x64)	UNKNOWN STEP	2026-09-28T04:56:35.8028156Z ##[group]Runner Image
+build-and-publish-binaries (osx-x64)	UNKNOWN STEP	2026-09-28T04:56:35.8028540Z Image: ubuntu-24.04
+build-and-publish-binaries (osx-x64)	UNKNOWN STEP	2026-09-28T04:56:35.8028881Z Version: 20260920.314.1
+build-and-publish-binaries (osx-x64)	UNKNOWN STEP	2026-09-28T04:56:35.8029663Z Included Software: https://github.com/actions/runner-images/blob/ubuntu24/20260920.314/images/ubuntu/Ubuntu2404-Readme.md
+build-and-publish-binaries (osx-x64)	UNKNOWN STEP	2026-09-28T04:56:35.8030505Z Image Release: https://github.com/actions/runner-images/releases/tag/ubuntu24%2F20260920.314
+build-and-publish-binaries (osx-x64)	UNKNOWN STEP	2026-09-28T04:56:35.8031101Z ##[endgroup]
+build-and-publish-binaries (osx-x64)	UNKNOWN STEP	2026-09-28T04:56:35.8031747Z ##[group]GITHUB_TOKEN Permissions
+build-and-publish-binaries (osx-x64)	UNKNOWN STEP	2026-09-28T04:56:35.8033062Z Contents: write
+build-and-publish-binaries (osx-x64)	UNKNOWN STEP	2026-09-28T04:56:35.8033406Z Metadata: read
+build-and-publish-binaries (osx-x64)	UNKNOWN STEP	2026-09-28T04:56:35.8033762Z ##[endgroup]
+build-and-publish-binaries (osx-x64)	UNKNOWN STEP	2026-09-28T04:56:35.8035174Z Secret source: Actions
+build-and-publish-binaries (osx-x64)	UNKNOWN STEP	2026-09-28T04:56:35.8036015Z Cache mode: write
+build-and-publish-binaries (osx-x64)	UNKNOWN STEP	2026-09-28T04:56:35.8036455Z Prepare workflow directory
+build-and-publish-binaries (osx-x64)	UNKNOWN STEP	2026-09-28T04:56:35.8237650Z Prepare all required actions
+build-and-publish-binaries (osx-x64)	UNKNOWN STEP	2026-09-28T04:56:35.8266815Z Getting action download info
+build-and-publish-binaries (osx-x64)	UNKNOWN STEP	2026-09-28T04:56:36.0471188Z Download action repository 'actions/checkout@v4' (SHA:11d5960a326750d5838078e36cf38b85af677262)
+build-and-publish-binaries (osx-x64)	UNKNOWN STEP	2026-09-28T04:56:36.1165555Z Download action repository 'actions/setup-dotnet@v4' (SHA:67a3573c9a986a3f9c594539f4ab511d57bb3ce9)
+build-and-publish-binaries (osx-x64)	UNKNOWN STEP	2026-09-28T04:56:36.6637947Z Complete job name: build-and-publish-binaries (osx-x64)
+build-and-publish-binaries (osx-x64)	UNKNOWN STEP	2026-09-28T04:56:36.7046294Z ##[group]Run actions/checkout@v4
+build-and-publish-binaries (osx-x64)	UNKNOWN STEP	2026-09-28T04:56:36.7046693Z with:
+build-and-publish-binaries (osx-x64)	UNKNOWN STEP	2026-09-28T04:56:36.7046949Z   repository: venkateshellur/VenEl.AssistantMCP
+build-and-publish-binaries (osx-x64)	UNKNOWN STEP	2026-09-28T04:56:36.7049027Z   token: ***
+build-and-publish-binaries (osx-x64)	UNKNOWN STEP	2026-09-28T04:56:36.7049251Z   ssh-strict: true
+build-and-publish-binaries (osx-x64)	UNKNOWN STEP	2026-09-28T04:56:36.7049480Z   ssh-user: git
+build-and-publish-binaries (osx-x64)	UNKNOWN STEP	2026-09-28T04:56:36.7049717Z   persist-credentials: true
+build-and-publish-binaries (osx-x64)	UNKNOWN STEP	2026-09-28T04:56:36.7049975Z   clean: true
+build-and-publish-binaries (osx-x64)	UNKNOWN STEP	2026-09-28T04:56:36.7050217Z   sparse-checkout-cone-mode: true
+build-and-publish-binaries (osx-x64)	UNKNOWN STEP	2026-09-28T04:56:36.7050495Z   fetch-depth: 1
+build-and-publish-binaries (osx-x64)	UNKNOWN STEP	2026-09-28T04:56:36.7050723Z   fetch-tags: false
+build-and-publish-binaries (osx-x64)	UNKNOWN STEP	2026-09-28T04:56:36.7050957Z   show-progress: true
+build-and-publish-binaries (osx-x64)	UNKNOWN STEP	2026-09-28T04:56:36.7051189Z   lfs: false
+build-and-publish-binaries (osx-x64)	UNKNOWN STEP	2026-09-28T04:56:36.7051410Z   submodules: false
+build-and-publish-binaries (osx-x64)	UNKNOWN STEP	2026-09-28T04:56:36.7051649Z   set-safe-directory: true
+build-and-publish-binaries (osx-x64)	UNKNOWN STEP	2026-09-28T04:56:36.7051911Z   allow-unsafe-pr-checkout: false
+build-and-publish-binaries (osx-x64)	UNKNOWN STEP	2026-09-28T04:56:36.7052246Z ##[endgroup]
+build-and-publish-binaries (osx-x64)	UNKNOWN STEP	2026-09-28T04:56:36.7643074Z Syncing repository: venkateshellur/VenEl.AssistantMCP
+build-and-publish-binaries (osx-x64)	UNKNOWN STEP	2026-09-28T04:56:36.7644531Z ##[group]Getting Git version info
+build-and-publish-binaries (osx-x64)	UNKNOWN STEP	2026-09-28T04:56:36.7645034Z Working directory is '/home/runner/work/VenEl.AssistantMCP/VenEl.AssistantMCP'
+build-and-publish-binaries (osx-x64)	UNKNOWN STEP	2026-09-28T04:56:36.7645624Z [command]/usr/bin/git version
+build-and-publish-binaries (osx-x64)	UNKNOWN STEP	2026-09-28T04:56:36.7721677Z git version 2.55.0
+build-and-publish-binaries (osx-x64)	UNKNOWN STEP	2026-09-28T04:56:36.7738402Z ##[endgroup]
+build-and-publish-binaries (osx-x64)	UNKNOWN STEP	2026-09-28T04:56:36.7743510Z Temporarily overriding HOME='/home/runner/work/_temp/dd8ba300-e744-4b26-9620-a373ad5c5793' before making global git config changes
+build-and-publish-binaries (osx-x64)	UNKNOWN STEP	2026-09-28T04:56:36.7745272Z Adding repository directory to the temporary git global config as a safe directory
+build-and-publish-binaries (osx-x64)	UNKNOWN STEP	2026-09-28T04:56:36.7749504Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/VenEl.AssistantMCP/VenEl.AssistantMCP
+build-and-publish-binaries (osx-x64)	UNKNOWN STEP	2026-09-28T04:56:36.7808943Z Deleting the contents of '/home/runner/work/VenEl.AssistantMCP/VenEl.AssistantMCP'
+build-and-publish-binaries (osx-x64)	UNKNOWN STEP	2026-09-28T04:56:36.7816498Z ##[group]Initializing the repository
+build-and-publish-binaries (osx-x64)	UNKNOWN STEP	2026-09-28T04:56:36.7817438Z [command]/usr/bin/git init /home/runner/work/VenEl.AssistantMCP/VenEl.AssistantMCP
+build-and-publish-binaries (osx-x64)	UNKNOWN STEP	2026-09-28T04:56:36.7927307Z hint: Using 'master' as the name for the initial branch. This default branch name
+build-and-publish-binaries (osx-x64)	UNKNOWN STEP	2026-09-28T04:56:36.7928540Z hint: will change to "main" in Git 3.0. To configure the initial branch name
+build-and-publish-binaries (osx-x64)	UNKNOWN STEP	2026-09-28T04:56:36.7929349Z hint: to use in all of your new repositories, which will suppress this warning,
+build-and-publish-binaries (osx-x64)	UNKNOWN STEP	2026-09-28T04:56:36.7929973Z hint: call:
+build-and-publish-binaries (osx-x64)	UNKNOWN STEP	2026-09-28T04:56:36.7930306Z hint:
+build-and-publish-binaries (osx-x64)	UNKNOWN STEP	2026-09-28T04:56:36.7930731Z hint: 	git config --global init.defaultBranch <name>
+build-and-publish-binaries (osx-x64)	UNKNOWN STEP	2026-09-28T04:56:36.7931247Z hint:
+build-and-publish-binaries (osx-x64)	UNKNOWN STEP	2026-09-28T04:56:36.7931730Z hint: Names commonly chosen instead of 'master' are 'main', 'trunk' and
+build-and-publish-binaries (osx-x64)	UNKNOWN STEP	2026-09-28T04:56:36.7932538Z hint: 'development'. The just-created branch can be renamed via this command:
+build-and-publish-binaries (osx-x64)	UNKNOWN STEP	2026-09-28T04:56:36.7933353Z hint:
+build-and-publish-binaries (osx-x64)	UNKNOWN STEP	2026-09-28T04:56:36.7933864Z hint: 	git branch -m <name>
+build-and-publish-binaries (osx-x64)	UNKNOWN STEP	2026-09-28T04:56:36.7934552Z hint:
+build-and-publish-binaries (osx-x64)	UNKNOWN STEP	2026-09-28T04:56:36.7935059Z hint: Disable this message with "git config set advice.defaultBranchName false"
+build-and-publish-binaries (osx-x64)	UNKNOWN STEP	2026-09-28T04:56:36.7935969Z Initialized empty Git repository in /home/runner/work/VenEl.AssistantMCP/VenEl.AssistantMCP/.git/
+build-and-publish-binaries (osx-x64)	UNKNOWN STEP	2026-09-28T04:56:36.7955221Z [command]/usr/bin/git remote add origin https://github.com/venkateshellur/VenEl.AssistantMCP
+build-and-publish-binaries (osx-x64)	UNKNOWN STEP	2026-09-28T04:56:36.7990308Z ##[endgroup]
+build-and-publish-binaries (osx-x64)	UNKNOWN STEP	2026-09-28T04:56:36.7990928Z ##[group]Disabling automatic garbage collection
+build-and-publish-binaries (osx-x64)	UNKNOWN STEP	2026-09-28T04:56:36.7995751Z [command]/usr/bin/git config --local gc.auto 0
+build-and-publish-binaries (osx-x64)	UNKNOWN STEP	2026-09-28T04:56:36.8032808Z ##[endgroup]
+build-and-publish-binaries (osx-x64)	UNKNOWN STEP	2026-09-28T04:56:36.8033422Z ##[group]Setting up auth
+build-and-publish-binaries (osx-x64)	UNKNOWN STEP	2026-09-28T04:56:36.8037288Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+build-and-publish-binaries (osx-x64)	UNKNOWN STEP	2026-09-28T04:56:36.8061972Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+build-and-publish-binaries (osx-x64)	UNKNOWN STEP	2026-09-28T04:56:36.8424042Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+build-and-publish-binaries (osx-x64)	UNKNOWN STEP	2026-09-28T04:56:36.8453036Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+build-and-publish-binaries (osx-x64)	UNKNOWN STEP	2026-09-28T04:56:36.8625956Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+build-and-publish-binaries (osx-x64)	UNKNOWN STEP	2026-09-28T04:56:36.8651684Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+build-and-publish-binaries (osx-x64)	UNKNOWN STEP	2026-09-28T04:56:36.8813366Z [command]/usr/bin/git config --local http.https://github.com/.extraheader AUTHORIZATION: basic ***
+build-and-publish-binaries (osx-x64)	UNKNOWN STEP	2026-09-28T04:56:36.8844435Z ##[endgroup]
+build-and-publish-binaries (osx-x64)	UNKNOWN STEP	2026-09-28T04:56:36.8844975Z ##[group]Fetching the repository
+build-and-publish-binaries (osx-x64)	UNKNOWN STEP	2026-09-28T04:56:36.8850033Z [command]/usr/bin/git -c protocol.version=2 fetch --no-tags --prune --no-recurse-submodules --depth=1 origin +e5c01a4352afe8aeebce270805cf225442687c53:refs/tags/v1.0.2
+build-and-publish-binaries (osx-x64)	UNKNOWN STEP	2026-09-28T04:56:37.3237484Z From https://github.com/venkateshellur/VenEl.AssistantMCP
+build-and-publish-binaries (osx-x64)	UNKNOWN STEP	2026-09-28T04:56:37.3238447Z  * [new ref]         e5c01a4352afe8aeebce270805cf225442687c53 -> v1.0.2
+build-and-publish-binaries (osx-x64)	UNKNOWN STEP	2026-09-28T04:56:37.3247550Z ##[endgroup]
+build-and-publish-binaries (osx-x64)	UNKNOWN STEP	2026-09-28T04:56:37.3248233Z ##[group]Determining the checkout info
+build-and-publish-binaries (osx-x64)	UNKNOWN STEP	2026-09-28T04:56:37.3248918Z ##[endgroup]
+build-and-publish-binaries (osx-x64)	UNKNOWN STEP	2026-09-28T04:56:37.3250998Z [command]/usr/bin/git sparse-checkout disable
+build-and-publish-binaries (osx-x64)	UNKNOWN STEP	2026-09-28T04:56:37.3292569Z [command]/usr/bin/git config --local --unset-all extensions.worktreeConfig
+build-and-publish-binaries (osx-x64)	UNKNOWN STEP	2026-09-28T04:56:37.3321232Z ##[group]Checking out the ref
+build-and-publish-binaries (osx-x64)	UNKNOWN STEP	2026-09-28T04:56:37.3324459Z [command]/usr/bin/git checkout --progress --force refs/tags/v1.0.2
+build-and-publish-binaries (osx-x64)	UNKNOWN STEP	2026-09-28T04:56:37.3445091Z Note: switching to 'refs/tags/v1.0.2'.
+build-and-publish-binaries (osx-x64)	UNKNOWN STEP	2026-09-28T04:56:37.3445819Z 
+build-and-publish-binaries (osx-x64)	UNKNOWN STEP	2026-09-28T04:56:37.3446395Z You are in 'detached HEAD' state. You can look around, make experimental
+build-and-publish-binaries (osx-x64)	UNKNOWN STEP	2026-09-28T04:56:37.3447743Z changes and commit them, and you can discard any commits you make in this
+build-and-publish-binaries (osx-x64)	UNKNOWN STEP	2026-09-28T04:56:37.3449078Z state without impacting any branches by switching back to a branch.
+build-and-publish-binaries (osx-x64)	UNKNOWN STEP	2026-09-28T04:56:37.3449915Z 
+build-and-publish-binaries (osx-x64)	UNKNOWN STEP	2026-09-28T04:56:37.3450468Z If you want to create a new branch to retain commits you create, you may
+build-and-publish-binaries (osx-x64)	UNKNOWN STEP	2026-09-28T04:56:37.3451513Z do so (now or later) by using -c with the switch command. Example:
+build-and-publish-binaries (osx-x64)	UNKNOWN STEP	2026-09-28T04:56:37.3452424Z 
+build-and-publish-binaries (osx-x64)	UNKNOWN STEP	2026-09-28T04:56:37.3452646Z   git switch -c <new-branch-name>
+build-and-publish-binaries (osx-x64)	UNKNOWN STEP	2026-09-28T04:56:37.3453031Z 
+build-and-publish-binaries (osx-x64)	UNKNOWN STEP	2026-09-28T04:56:37.3453240Z Or undo this operation with:
+build-and-publish-binaries (osx-x64)	UNKNOWN STEP	2026-09-28T04:56:37.3453588Z 
+build-and-publish-binaries (osx-x64)	UNKNOWN STEP	2026-09-28T04:56:37.3453771Z   git switch -
+build-and-publish-binaries (osx-x64)	UNKNOWN STEP	2026-09-28T04:56:37.3454037Z 
+build-and-publish-binaries (osx-x64)	UNKNOWN STEP	2026-09-28T04:56:37.3454691Z Turn off this advice by setting config variable advice.detachedHead to false
+build-and-publish-binaries (osx-x64)	UNKNOWN STEP	2026-09-28T04:56:37.3455439Z 
+build-and-publish-binaries (osx-x64)	UNKNOWN STEP	2026-09-28T04:56:37.3455898Z HEAD is now at e5c01a4 KAN-2 : docs: Add NuGet metadata and bump version to 1.0.1
+build-and-publish-binaries (osx-x64)	UNKNOWN STEP	2026-09-28T04:56:37.3457812Z ##[endgroup]
+build-and-publish-binaries (osx-x64)	UNKNOWN STEP	2026-09-28T04:56:37.3483802Z [command]/usr/bin/git log -1 --format=%H
+build-and-publish-binaries (osx-x64)	UNKNOWN STEP	2026-09-28T04:56:37.3504518Z e5c01a4352afe8aeebce270805cf225442687c53
+build-and-publish-binaries (osx-x64)	UNKNOWN STEP	2026-09-28T04:56:37.3717484Z ##[group]Run actions/setup-dotnet@v4
+build-and-publish-binaries (osx-x64)	UNKNOWN STEP	2026-09-28T04:56:37.3718154Z with:
+build-and-publish-binaries (osx-x64)	UNKNOWN STEP	2026-09-28T04:56:37.3718632Z   dotnet-version: 10.0.x
+build-and-publish-binaries (osx-x64)	UNKNOWN STEP	2026-09-28T04:56:37.3719204Z   cache: false
+build-and-publish-binaries (osx-x64)	UNKNOWN STEP	2026-09-28T04:56:37.3719687Z ##[endgroup]
+build-and-publish-binaries (osx-x64)	UNKNOWN STEP	2026-09-28T04:56:37.4519692Z (node:2025) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+build-and-publish-binaries (osx-x64)	UNKNOWN STEP	2026-09-28T04:56:37.4522326Z (Use `node --trace-deprecation ...` to show where the warning was created)
+build-and-publish-binaries (osx-x64)	UNKNOWN STEP	2026-09-28T04:56:37.4533622Z [command]/home/runner/work/_actions/actions/setup-dotnet/v4/externals/install-dotnet.sh --skip-non-versioned-files --runtime dotnet --channel LTS
+build-and-publish-binaries (osx-x64)	UNKNOWN STEP	2026-09-28T04:56:37.7477198Z dotnet-install: .NET Core Runtime with version '10.0.12' is already installed.
+build-and-publish-binaries (osx-x64)	UNKNOWN STEP	2026-09-28T04:56:37.7493977Z [command]/home/runner/work/_actions/actions/setup-dotnet/v4/externals/install-dotnet.sh --skip-non-versioned-files --channel 10.0
+build-and-publish-binaries (osx-x64)	UNKNOWN STEP	2026-09-28T04:56:38.0866993Z dotnet-install: .NET Core SDK with version '10.0.401' is already installed.
+build-and-publish-binaries (osx-x64)	UNKNOWN STEP	2026-09-28T04:56:38.0997322Z ##[group]Run for d in src/VenEl.MCP.*; do
+build-and-publish-binaries (osx-x64)	UNKNOWN STEP	2026-09-28T04:56:38.0997579Z ^[[36;1mfor d in src/VenEl.MCP.*; do^[[0m
+build-and-publish-binaries (osx-x64)	UNKNOWN STEP	2026-09-28T04:56:38.0997766Z ^[[36;1m  if [ -d "$d" ]; then^[[0m
+build-and-publish-binaries (osx-x64)	UNKNOWN STEP	2026-09-28T04:56:38.0997943Z ^[[36;1m    projName=$(basename "$d")^[[0m
+build-and-publish-binaries (osx-x64)	UNKNOWN STEP	2026-09-28T04:56:38.0998183Z ^[[36;1m    # Skip Host or Server projects, just pack the logic libraries^[[0m
+build-and-publish-binaries (osx-x64)	UNKNOWN STEP	2026-09-28T04:56:38.0998476Z ^[[36;1m    if [[ "$projName" != *"Host" && "$projName" != *"Server" ]]; then^[[0m
+build-and-publish-binaries (osx-x64)	UNKNOWN STEP	2026-09-28T04:56:38.0998742Z ^[[36;1m      dotnet pack "$d/$projName.csproj" -c Release -o nupkg^[[0m
+build-and-publish-binaries (osx-x64)	UNKNOWN STEP	2026-09-28T04:56:38.0998951Z ^[[36;1m    fi^[[0m
+build-and-publish-binaries (osx-x64)	UNKNOWN STEP	2026-09-28T04:56:38.0999086Z ^[[36;1m  fi^[[0m
+build-and-publish-binaries (osx-x64)	UNKNOWN STEP	2026-09-28T04:56:38.0999219Z ^[[36;1mdone^[[0m
+build-and-publish-binaries (osx-x64)	UNKNOWN STEP	2026-09-28T04:56:38.1206933Z shell: /usr/bin/bash -e {0}
+build-and-publish-binaries (osx-x64)	UNKNOWN STEP	2026-09-28T04:56:38.1207124Z env:
+build-and-publish-binaries (osx-x64)	UNKNOWN STEP	2026-09-28T04:56:38.1207290Z   DOTNET_ROOT: /usr/share/dotnet
+build-and-publish-binaries (osx-x64)	UNKNOWN STEP	2026-09-28T04:56:38.1207457Z ##[endgroup]
+build-and-publish-binaries (osx-x64)	UNKNOWN STEP	2026-09-28T04:56:39.0304778Z   Determining projects to restore...
+build-and-publish-binaries (osx-x64)	UNKNOWN STEP	2026-09-28T04:56:40.5592054Z   Restored /home/runner/work/VenEl.AssistantMCP/VenEl.AssistantMCP/src/VenEl.MCP.AWS/VenEl.MCP.AWS.csproj (in 1.26 sec).
+build-and-publish-binaries (osx-x64)	UNKNOWN STEP	2026-09-28T04:56:40.5602471Z   Restored /home/runner/work/VenEl.AssistantMCP/VenEl.AssistantMCP/src/VenEl.MCP.Core/VenEl.MCP.Core.csproj (in 1.26 sec).
+build-and-publish-binaries (osx-x64)	UNKNOWN STEP	2026-09-28T04:56:41.9669851Z   VenEl.MCP.Core -> /home/runner/work/VenEl.AssistantMCP/VenEl.AssistantMCP/src/VenEl.MCP.Core/bin/Release/net8.0/VenEl.MCP.Core.dll
+build-and-publish-binaries (osx-x64)	UNKNOWN STEP	2026-09-28T04:56:41.9712323Z   Installing Git Hooks for Jira enforcement...
+build-and-publish-binaries (osx-x64)	UNKNOWN STEP	2026-09-28T04:56:42.1137188Z   VenEl.MCP.AWS -> /home/runner/work/VenEl.AssistantMCP/VenEl.AssistantMCP/src/VenEl.MCP.AWS/bin/Release/net8.0/VenEl.MCP.AWS.dll
+build-and-publish-binaries (osx-x64)	UNKNOWN STEP	2026-09-28T04:56:42.1165824Z   Installing Git Hooks for Jira enforcement...
+build-and-publish-binaries (osx-x64)	UNKNOWN STEP	2026-09-28T04:56:42.3116730Z   Successfully created package '/home/runner/work/VenEl.AssistantMCP/VenEl.AssistantMCP/nupkg/VenEl.MCP.AWS.1.0.1.nupkg'.
+build-and-publish-binaries (osx-x64)	UNKNOWN STEP	2026-09-28T04:56:42.6499710Z   Determining projects to restore...
+build-and-publish-binaries (osx-x64)	UNKNOWN STEP	2026-09-28T04:56:43.2913861Z   Restored /home/runner/work/VenEl.AssistantMCP/VenEl.AssistantMCP/src/VenEl.MCP.Atlassian/VenEl.MCP.Atlassian.csproj (in 436 ms).
+build-and-publish-binaries (osx-x64)	UNKNOWN STEP	2026-09-28T04:56:43.2935134Z   1 of 2 projects are up-to-date for restore.
+build-and-publish-binaries (osx-x64)	UNKNOWN STEP	2026-09-28T04:56:43.5047548Z   VenEl.MCP.Core -> /home/runner/work/VenEl.AssistantMCP/VenEl.AssistantMCP/src/VenEl.MCP.Core/bin/Release/net8.0/VenEl.MCP.Core.dll
+build-and-publish-binaries (osx-x64)	UNKNOWN STEP	2026-09-28T04:56:43.5071929Z   Installing Git Hooks for Jira enforcement...
+build-and-publish-binaries (osx-x64)	UNKNOWN STEP	2026-09-28T04:56:43.7950843Z   VenEl.MCP.Atlassian -> /home/runner/work/VenEl.AssistantMCP/VenEl.AssistantMCP/src/VenEl.MCP.Atlassian/bin/Release/net8.0/VenEl.MCP.Atlassian.dll
+build-and-publish-binaries (osx-x64)	UNKNOWN STEP	2026-09-28T04:56:43.7974703Z   Installing Git Hooks for Jira enforcement...
+build-and-publish-binaries (osx-x64)	UNKNOWN STEP	2026-09-28T04:56:43.9788359Z   Successfully created package '/home/runner/work/VenEl.AssistantMCP/VenEl.AssistantMCP/nupkg/VenEl.MCP.Atlassian.1.0.1.nupkg'.
+build-and-publish-binaries (osx-x64)	UNKNOWN STEP	2026-09-28T04:56:44.3978594Z   Determining projects to restore...
+build-and-publish-binaries (osx-x64)	UNKNOWN STEP	2026-09-28T04:56:44.7544806Z   Restored /home/runner/work/VenEl.AssistantMCP/VenEl.AssistantMCP/src/VenEl.MCP.Azure/VenEl.MCP.Azure.csproj (in 131 ms).
+build-and-publish-binaries (osx-x64)	UNKNOWN STEP	2026-09-28T04:56:44.7565900Z   1 of 2 projects are up-to-date for restore.
+build-and-publish-binaries (osx-x64)	UNKNOWN STEP	2026-09-28T04:56:44.9850026Z   VenEl.MCP.Core -> /home/runner/work/VenEl.AssistantMCP/VenEl.AssistantMCP/src/VenEl.MCP.Core/bin/Release/net8.0/VenEl.MCP.Core.dll
+build-and-publish-binaries (osx-x64)	UNKNOWN STEP	2026-09-28T04:56:44.9878765Z   Installing Git Hooks for Jira enforcement...
+build-and-publish-binaries (osx-x64)	UNKNOWN STEP	2026-09-28T04:56:45.1653801Z   VenEl.MCP.Azure -> /home/runner/work/VenEl.AssistantMCP/VenEl.AssistantMCP/src/VenEl.MCP.Azure/bin/Release/net8.0/VenEl.MCP.Azure.dll
+build-and-publish-binaries (osx-x64)	UNKNOWN STEP	2026-09-28T04:56:45.1673972Z   Installing Git Hooks for Jira enforcement...
+build-and-publish-binaries (osx-x64)	UNKNOWN STEP	2026-09-28T04:56:45.3472634Z   Successfully created package '/home/runner/work/VenEl.AssistantMCP/VenEl.AssistantMCP/nupkg/VenEl.MCP.Azure.1.0.1.nupkg'.
+build-and-publish-binaries (osx-x64)	UNKNOWN STEP	2026-09-28T04:56:45.7352542Z   Determining projects to restore...
+build-and-publish-binaries (osx-x64)	UNKNOWN STEP	2026-09-28T04:56:46.1874808Z /home/runner/work/VenEl.AssistantMCP/VenEl.AssistantMCP/src/VenEl.MCP.Bitwarden/VenEl.MCP.Bitwarden.csproj : error NU1102: Unable to find package Bitwarden.Secrets.Sdk with version (>= 1.0.1)
+build-and-publish-binaries (osx-x64)	UNKNOWN STEP	2026-09-28T04:56:46.1876781Z /home/runner/work/VenEl.AssistantMCP/VenEl.AssistantMCP/src/VenEl.MCP.Bitwarden/VenEl.MCP.Bitwarden.csproj : error NU1102:   - Found 1 version(s) in nuget.org [ Nearest version: 1.0.0 ]
+build-and-publish-binaries (osx-x64)	UNKNOWN STEP	2026-09-28T04:56:46.2622065Z   Failed to restore /home/runner/work/VenEl.AssistantMCP/VenEl.AssistantMCP/src/VenEl.MCP.Bitwarden/VenEl.MCP.Bitwarden.csproj (in 293 ms).
+build-and-publish-binaries (osx-x64)	UNKNOWN STEP	2026-09-28T04:56:46.2640970Z   1 of 2 projects are up-to-date for restore.
+build-and-publish-binaries (osx-x64)	UNKNOWN STEP	2026-09-28T04:56:46.2931558Z ##[error]Process completed with exit code 1.
+build-and-publish-binaries (osx-x64)	UNKNOWN STEP	2026-09-28T04:56:46.3061569Z Post job cleanup.
+build-and-publish-binaries (osx-x64)	UNKNOWN STEP	2026-09-28T04:56:46.3611346Z [command]/usr/bin/git version
+build-and-publish-binaries (osx-x64)	UNKNOWN STEP	2026-09-28T04:56:46.3643610Z git version 2.55.0
+build-and-publish-binaries (osx-x64)	UNKNOWN STEP	2026-09-28T04:56:46.3652754Z Temporarily overriding HOME='/home/runner/work/_temp/f4a646c0-8e0a-445a-9635-d5fc98d5fbd9' before making global git config changes
+build-and-publish-binaries (osx-x64)	UNKNOWN STEP	2026-09-28T04:56:46.3653789Z Adding repository directory to the temporary git global config as a safe directory
+build-and-publish-binaries (osx-x64)	UNKNOWN STEP	2026-09-28T04:56:46.3657536Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/VenEl.AssistantMCP/VenEl.AssistantMCP
+build-and-publish-binaries (osx-x64)	UNKNOWN STEP	2026-09-28T04:56:46.3689960Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+build-and-publish-binaries (osx-x64)	UNKNOWN STEP	2026-09-28T04:56:46.3718665Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+build-and-publish-binaries (osx-x64)	UNKNOWN STEP	2026-09-28T04:56:46.3975471Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+build-and-publish-binaries (osx-x64)	UNKNOWN STEP	2026-09-28T04:56:46.3977412Z http.https://github.com/.extraheader
+build-and-publish-binaries (osx-x64)	UNKNOWN STEP	2026-09-28T04:56:46.3978455Z [command]/usr/bin/git config --local --unset-all http.https://github.com/.extraheader
+build-and-publish-binaries (osx-x64)	UNKNOWN STEP	2026-09-28T04:56:46.3979791Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+build-and-publish-binaries (osx-x64)	UNKNOWN STEP	2026-09-28T04:56:46.4256285Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+build-and-publish-binaries (osx-x64)	UNKNOWN STEP	2026-09-28T04:56:46.4325475Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+build-and-publish-binaries (osx-x64)	UNKNOWN STEP	2026-09-28T04:56:46.4636100Z Cleaning up orphan processes
+build-and-publish-binaries (osx-x64)	UNKNOWN STEP	2026-09-28T04:56:46.4835865Z Terminate orphan process: pid (2269) (VBCSCompiler)
+build-and-publish-binaries (osx-x64)	UNKNOWN STEP	2026-09-28T04:56:46.4844737Z ##[warning]Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/checkout@v4, actions/setup-dotnet@v4. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/
