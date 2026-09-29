@@ -58,6 +58,8 @@ namespace VenEl.ModularMCP.Core
                 plugin.ConfigureServices(builder.Services, builder.Configuration);
             }
 
+            builder.Services.AddCoreSecurity();
+
             var mcpBuilder = builder.Services
                 .AddMcpServer(options =>
                 {
