@@ -1,10 +1,10 @@
 using System;
 using System.IO;
-using System.IO.Compression;
 using System.Linq;
 using System.Net.Http;
 using System.Text.Json;
 using System.Threading.Tasks;
+using System.Diagnostics;
 
 namespace VenEl.ModularMCP.Core
 {
@@ -17,33 +17,27 @@ namespace VenEl.ModularMCP.Core
             try
             {
                 if (!Directory.Exists(pluginDir)) return;
-
                 var lastCheckFile = Path.Combine(pluginDir, ".last_update_check");
                 if (File.Exists(lastCheckFile))
                 {
                     if (DateTime.TryParse(await File.ReadAllTextAsync(lastCheckFile), out DateTime lastCheck))
                     {
-                        if ((DateTime.UtcNow - lastCheck).TotalHours < 24)
-                        {
-                            return; // Less than 24 hours ago, skip update
-                        }
+                        if ((DateTime.UtcNow - lastCheck).TotalHours < 24) return;
                     }
                 }
 
                 Console.Error.WriteLine("[AutoUpdate] Checking NuGet for plugin updates...");
-
                 var installedPlugins = Directory.GetDirectories(pluginDir);
                 foreach (var pluginPath in installedPlugins)
                 {
                     var pluginName = Path.GetFileName(pluginPath);
                     await InstallOrUpdatePluginAsync(pluginName, pluginDir, silent: true);
                 }
-
                 await File.WriteAllTextAsync(lastCheckFile, DateTime.UtcNow.ToString("O"));
             }
             catch (Exception ex)
             {
-                Console.Error.WriteLine($"[AutoUpdate] Failed to run daily update: {ex.Message}");
+                Console.Error.WriteLine($"[AutoUpdate] Failed: {ex.Message}");
             }
         }
 
@@ -54,85 +48,75 @@ namespace VenEl.ModularMCP.Core
                 var packageId = $"VenEl.ModularMCP.{pluginName}".ToLowerInvariant();
                 var indexUrl = $"https://api.nuget.org/v3-flatcontainer/{packageId}/index.json";
 
-                HttpResponseMessage indexResponse = await _httpClient.GetAsync(indexUrl);
+                var indexResponse = await _httpClient.GetAsync(indexUrl);
                 if (!indexResponse.IsSuccessStatusCode)
                 {
-                    if (!silent)
-                    {
-                        Console.ForegroundColor = ConsoleColor.Red;
-                        Console.Error.WriteLine($"[Error] Could not find plugin '{pluginName}' on NuGet.");
-                        Console.ResetColor();
-                    }
+                    if (!silent) { Console.ForegroundColor = ConsoleColor.Red; Console.Error.WriteLine($"[Error] Could not find plugin '{pluginName}' on NuGet."); Console.ResetColor(); }
                     return;
                 }
 
-                var indexJson = await indexResponse.Content.ReadAsStringAsync();
-                var indexDoc = JsonDocument.Parse(indexJson);
-                
+                var indexDoc = JsonDocument.Parse(await indexResponse.Content.ReadAsStringAsync());
                 var versions = indexDoc.RootElement.GetProperty("versions").EnumerateArray().Select(v => v.GetString()).ToList();
                 if (versions.Count == 0) return;
+                var latestVersion = versions.Last();
 
-                var latestVersion = versions.Last(); // NuGet flatcontainer returns sorted versions
+                if (!silent) Console.Error.WriteLine($"Resolving dependencies for {pluginName} v{latestVersion} via NuGet...");
 
-                if (!silent)
-                {
-                    Console.Error.WriteLine($"Installing {pluginName} v{latestVersion} from NuGet...");
-                }
-
-                var downloadUrl = $"https://api.nuget.org/v3-flatcontainer/{packageId}/{latestVersion}/{packageId}.{latestVersion}.nupkg";
-                
-                var tempFile = Path.GetTempFileName();
-                using (var s = await _httpClient.GetStreamAsync(downloadUrl))
-                using (var fs = new FileStream(tempFile, FileMode.OpenOrCreate))
-                {
-                    await s.CopyToAsync(fs);
-                }
-
-                if (!Directory.Exists(pluginDir))
-                {
-                    Directory.CreateDirectory(pluginDir);
-                }
-
+                if (!Directory.Exists(pluginDir)) Directory.CreateDirectory(pluginDir);
                 var targetDir = Path.Combine(pluginDir, pluginName);
-                if (Directory.Exists(targetDir)) 
-                {
-                    Directory.Delete(targetDir, true);
-                }
-                Directory.CreateDirectory(targetDir);
 
-                // Open the .nupkg (which is just a zip archive)
-                using (var archive = ZipFile.OpenRead(tempFile))
+                // Use the MSBuild Dummy Project trick to fetch the plugin AND all its transient dependencies
+                var tempDir = Path.Combine(Path.GetTempPath(), Guid.NewGuid().ToString());
+                Directory.CreateDirectory(tempDir);
+                var csprojPath = Path.Combine(tempDir, "PluginInstall.csproj");
+                
+                var csprojContent = $@"
+<Project Sdk=""Microsoft.NET.Sdk"">
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <CopyLocalLockFileAssemblies>true</CopyLocalLockFileAssemblies>
+    <!-- Prevent it from building an executable, we just want to resolve the library -->
+    <OutputType>Library</OutputType> 
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include=""{packageId}"" Version=""{latestVersion}"" />
+  </ItemGroup>
+</Project>";
+                await File.WriteAllTextAsync(csprojPath, csprojContent);
+
+                var processInfo = new ProcessStartInfo
                 {
-                    foreach (var entry in archive.Entries)
+                    FileName = "dotnet",
+                    Arguments = $"publish \"{csprojPath}\" -c Release -o \"{targetDir}\"",
+                    RedirectStandardOutput = true,
+                    RedirectStandardError = true,
+                    UseShellExecute = false,
+                    CreateNoWindow = true
+                };
+
+                using (var process = Process.Start(processInfo))
+                {
+                    await process.WaitForExitAsync();
+                    if (process.ExitCode != 0)
                     {
-                        // We only want to extract the DLLs from the lib/net8.0/ folder
-                        if (entry.FullName.StartsWith("lib/net8.0/") && !string.IsNullOrEmpty(entry.Name))
-                        {
-                            var destinationPath = Path.Combine(targetDir, entry.Name);
-                            entry.ExtractToFile(destinationPath, true);
-                            if (!silent) Console.Error.WriteLine($"  -> Extracted: {entry.Name}");
-                        }
+                        var error = await process.StandardError.ReadToEndAsync();
+                        throw new Exception($"dotnet publish failed: {error}");
                     }
                 }
 
-                File.Delete(tempFile);
+                // Cleanup temp dir
+                Directory.Delete(tempDir, true);
 
                 if (!silent)
                 {
                     Console.ForegroundColor = ConsoleColor.Green;
-                    Console.Error.WriteLine($"\n[Success] Successfully installed '{pluginName}' v{latestVersion} into {targetDir}");
-                    Console.Error.WriteLine("It will be dynamically loaded the next time you boot the Core host.");
+                    Console.Error.WriteLine($"\n[Success] Successfully installed '{pluginName}' and ALL dependencies into {targetDir}");
                     Console.ResetColor();
                 }
             }
             catch (Exception ex)
             {
-                if (!silent)
-                {
-                    Console.ForegroundColor = ConsoleColor.Red;
-                    Console.Error.WriteLine($"[Error] Failed to install plugin '{pluginName}': {ex.Message}");
-                    Console.ResetColor();
-                }
+                if (!silent) { Console.ForegroundColor = ConsoleColor.Red; Console.Error.WriteLine($"[Error] Failed to install plugin '{pluginName}': {ex.Message}"); Console.ResetColor(); }
             }
         }
     }

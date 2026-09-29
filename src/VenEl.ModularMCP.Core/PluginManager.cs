@@ -21,6 +21,7 @@ namespace VenEl.ModularMCP.Core
         {
             // Delegate shared assemblies to the default context to prevent type mismatch
             if (assemblyName.Name == "VenEl.ModularMCP.Shared" ||
+                assemblyName.Name == "VenEl.MCP.Core" ||
                 assemblyName.Name == "Microsoft.Extensions.DependencyInjection.Abstractions" ||
                 assemblyName.Name == "Microsoft.Extensions.Configuration.Abstractions")
             {
