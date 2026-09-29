@@ -20,13 +20,15 @@ namespace VenEl.ModularMCP.Core
         protected override Assembly Load(AssemblyName assemblyName)
         {
             // Delegate shared assemblies to the default context to prevent type mismatch
-                        if (assemblyName.Name == "VenEl.ModularMCP.Shared" ||
+                                    if (assemblyName.Name == "VenEl.ModularMCP.Shared" ||
                 assemblyName.Name == "VenEl.MCP.Core" ||
                 assemblyName.Name == "ModelContextProtocol" ||
                 assemblyName.Name == "ModelContextProtocol.Core" ||
-                assemblyName.Name == "Microsoft.Extensions.Hosting.Abstractions" ||
-                assemblyName.Name == "Microsoft.Extensions.DependencyInjection.Abstractions" ||
-                assemblyName.Name == "Microsoft.Extensions.Configuration.Abstractions")
+                (assemblyName.Name != None && assemblyName.Name.StartsWith("Microsoft.Extensions.")) ||
+                (assemblyName.Name != None && assemblyName.Name.StartsWith("System.Text.Json")) ||
+                (assemblyName.Name != None && assemblyName.Name.StartsWith("System.Text.Encodings.Web")) ||
+                (assemblyName.Name != None && assemblyName.Name.StartsWith("System.Net.ServerSentEvents")) ||
+                (assemblyName.Name != None && assemblyName.Name.StartsWith("System.IO.Pipelines")))
             {
                 return null;
             }
