@@ -4,6 +4,10 @@ using System.IO.Compression;
 using System.Threading.Tasks;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.Hosting;
+using Microsoft.Extensions.Logging;
+using VenEl.MCP.Core.Registration;
+using VenEl.MCP.Core.Extensions;
 
 namespace VenEl.ModularMCP.Core
 {
@@ -23,39 +27,66 @@ namespace VenEl.ModularMCP.Core
             }
 
             Console.Error.WriteLine("Starting VenEl.ModularMCP Core Host...");
-            
+
             var pluginManager = new PluginManager();
             
             Console.Error.WriteLine($"Scanning for dynamic plugins in: {pluginDir}");
             var plugins = pluginManager.LoadPlugins(pluginDir);
             Console.Error.WriteLine($"Engine loaded {plugins.Count} plugins successfully.");
-            
-            // Setup Configuration
-            var configuration = new ConfigurationBuilder()
-                .SetBasePath(Directory.GetCurrentDirectory())
-                // .AddJsonFile("appsettings.json", optional: true)
-                .Build();
 
-            // Setup DI Services
-            var services = new ServiceCollection();
-            
+            // Use generic host builder to support MCP server properly
+            var builder = Host.CreateEmptyApplicationBuilder(settings: null);
+
+            var userProfile = Environment.GetFolderPath(Environment.SpecialFolder.UserProfile);
+            var userConfigDir = Path.Combine(userProfile, ".venel-mcp");
+            var userConfigPath = Path.Combine(userConfigDir, "appsettings.json");
+
+            builder.Configuration
+                .SetBasePath(AppContext.BaseDirectory)
+                .AddJsonFile("appsettings.json", optional: true, reloadOnChange: false)
+                .AddJsonFile(userConfigPath, optional: true, reloadOnChange: true)
+                .AddEnvironmentVariables(prefix: "VENEL_");
+
+            builder.Logging
+                .ClearProviders()
+                .SetMinimumLevel(LogLevel.Warning);
+
+            // Let plugins configure services (which adds their tools to the McpFeatureRegistry)
             foreach (var plugin in plugins)
             {
                 Console.Error.WriteLine($"Configuring Services for: {plugin.Name} ({plugin.Description})");
-                plugin.ConfigureServices(services, configuration);
+                plugin.ConfigureServices(builder.Services, builder.Configuration);
             }
-            
-            var serviceProvider = services.BuildServiceProvider();
-            Console.Error.WriteLine("Dependency Injection container built successfully.");
-            
+
+            // Setup MCP Server Networking
+            var mcpBuilder = builder.Services
+                .AddMcpServer(options =>
+                {
+                    options.ServerInfo = new()
+                    {
+                        Name = "VenEl.ModularMCP",
+                        Version = "1.0.7"
+                    };
+                })
+                .WithStdioServerTransport();
+
+            // Pull all tools added by plugins in the registry and inject them into the server
+            builder.Services
+                .GetOrAddFeatureRegistry()
+                .ApplyAll(mcpBuilder, null);
+
+            Console.Error.WriteLine("Dependency Injection container & MCP Server built successfully.");
+
             foreach (var plugin in plugins)
             {
                 Console.Error.WriteLine($"Initializing: {plugin.Name}");
                 await plugin.InitializeAsync();
             }
-            
+
             Console.Error.WriteLine("Core is running and waiting for MCP connections...");
-            await Task.Delay(-1);
+            
+            var host = builder.Build();
+            await host.RunAsync();
         }
 
         static async Task InstallPluginAsync(string pluginName, string pluginDir)
