@@ -55,6 +55,7 @@ namespace VenEl.ModularMCP.Core
             }
             
             Console.Error.WriteLine("Core is running and waiting for MCP connections...");
+            await Task.Delay(-1);
         }
 
         static async Task InstallPluginAsync(string pluginName, string pluginDir)
