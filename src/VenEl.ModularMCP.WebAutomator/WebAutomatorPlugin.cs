@@ -14,7 +14,7 @@ namespace VenEl.ModularMCP.WebAutomator
 
         public void ConfigureServices(IServiceCollection services, IConfiguration configuration)
         {
-            // Registration for WebAutomator goes here
+            services.AddWebAutomator();
         }
 
         public Task InitializeAsync()

@@ -14,7 +14,7 @@ namespace VenEl.ModularMCP.LocalOffice
 
         public void ConfigureServices(IServiceCollection services, IConfiguration configuration)
         {
-            // Registration for LocalOffice goes here
+            services.AddLocalOfficeTools(configuration);
         }
 
         public Task InitializeAsync()

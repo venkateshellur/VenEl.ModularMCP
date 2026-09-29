@@ -14,7 +14,7 @@ namespace VenEl.ModularMCP.Logging
 
         public void ConfigureServices(IServiceCollection services, IConfiguration configuration)
         {
-            // Registration for Logging goes here
+            services.AddLoggingFeature(configuration);
         }
 
         public Task InitializeAsync()

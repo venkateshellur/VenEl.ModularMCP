@@ -14,7 +14,7 @@ namespace VenEl.ModularMCP.Slack
 
         public void ConfigureServices(IServiceCollection services, IConfiguration configuration)
         {
-            // Registration for Slack goes here
+            services.AddSlackFeature(configuration);
         }
 
         public Task InitializeAsync()

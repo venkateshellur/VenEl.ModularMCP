@@ -14,7 +14,7 @@ namespace VenEl.ModularMCP.GCP
 
         public void ConfigureServices(IServiceCollection services, IConfiguration configuration)
         {
-            // Registration for GCP goes here
+            services.AddGcpFeature(configuration);
         }
 
         public Task InitializeAsync()

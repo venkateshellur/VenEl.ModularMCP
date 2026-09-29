@@ -14,7 +14,7 @@ namespace VenEl.ModularMCP.MicrosoftTeams
 
         public void ConfigureServices(IServiceCollection services, IConfiguration configuration)
         {
-            // Registration for MicrosoftTeams goes here
+            services.AddTeamsMcp(configuration);
         }
 
         public Task InitializeAsync()

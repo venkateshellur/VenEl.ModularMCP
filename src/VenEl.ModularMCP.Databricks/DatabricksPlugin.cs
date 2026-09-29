@@ -14,7 +14,7 @@ namespace VenEl.ModularMCP.Databricks
 
         public void ConfigureServices(IServiceCollection services, IConfiguration configuration)
         {
-            // Registration for Databricks goes here
+            services.AddDatabricksFeature(configuration);
         }
 
         public Task InitializeAsync()

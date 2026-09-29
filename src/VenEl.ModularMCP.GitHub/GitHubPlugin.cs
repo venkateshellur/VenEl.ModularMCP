@@ -14,7 +14,7 @@ namespace VenEl.ModularMCP.GitHub
 
         public void ConfigureServices(IServiceCollection services, IConfiguration configuration)
         {
-            // Registration for GitHub goes here
+            services.AddGitHubFeature(configuration);
         }
 
         public Task InitializeAsync()

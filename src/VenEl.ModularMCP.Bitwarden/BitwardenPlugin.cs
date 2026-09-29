@@ -14,7 +14,7 @@ namespace VenEl.ModularMCP.Bitwarden
 
         public void ConfigureServices(IServiceCollection services, IConfiguration configuration)
         {
-            // Registration for Bitwarden goes here
+            services.AddBitwardenFeature(configuration);
         }
 
         public Task InitializeAsync()

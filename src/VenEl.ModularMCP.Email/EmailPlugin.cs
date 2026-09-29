@@ -14,7 +14,7 @@ namespace VenEl.ModularMCP.Email
 
         public void ConfigureServices(IServiceCollection services, IConfiguration configuration)
         {
-            // Registration for Email goes here
+            services.AddEmailFeature(configuration);
         }
 
         public Task InitializeAsync()

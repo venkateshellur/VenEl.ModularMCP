@@ -14,7 +14,7 @@ namespace VenEl.ModularMCP.Atlassian
 
         public void ConfigureServices(IServiceCollection services, IConfiguration configuration)
         {
-            // Registration for Atlassian goes here
+            services.AddAtlassianFeature(configuration);
         }
 
         public Task InitializeAsync()

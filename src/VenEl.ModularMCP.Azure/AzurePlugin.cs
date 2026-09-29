@@ -14,7 +14,7 @@ namespace VenEl.ModularMCP.Azure
 
         public void ConfigureServices(IServiceCollection services, IConfiguration configuration)
         {
-            // Registration for Azure goes here
+            services.AddAzureFeature(configuration);
         }
 
         public Task InitializeAsync()

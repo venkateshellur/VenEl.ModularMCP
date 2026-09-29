@@ -14,7 +14,7 @@ namespace VenEl.ModularMCP.AWS
 
         public void ConfigureServices(IServiceCollection services, IConfiguration configuration)
         {
-            // Registration for AWS goes here
+            services.AddAwsFeature(configuration);
         }
 
         public Task InitializeAsync()

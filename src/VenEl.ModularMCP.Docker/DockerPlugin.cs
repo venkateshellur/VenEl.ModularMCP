@@ -14,7 +14,7 @@ namespace VenEl.ModularMCP.Docker
 
         public void ConfigureServices(IServiceCollection services, IConfiguration configuration)
         {
-            // Registration for Docker goes here
+            services.AddDockerFeature(configuration);
         }
 
         public Task InitializeAsync()

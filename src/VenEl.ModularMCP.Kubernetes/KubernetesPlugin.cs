@@ -14,7 +14,7 @@ namespace VenEl.ModularMCP.Kubernetes
 
         public void ConfigureServices(IServiceCollection services, IConfiguration configuration)
         {
-            // Registration for Kubernetes goes here
+            services.AddKubernetesFeature(configuration);
         }
 
         public Task InitializeAsync()

@@ -69,9 +69,9 @@ namespace VenEl.ModularMCP.Core
                 })
                 .WithStdioServerTransport();
 
-            builder.Services
-                .GetOrAddFeatureRegistry()
-                .ApplyAll(mcpBuilder, null);
+                        var registry = builder.Services.GetOrAddFeatureRegistry();
+            Console.Error.WriteLine($"Total Registered Features: {registry.Registrations.Count}");
+            registry.ApplyAll(mcpBuilder, null);
 
             Console.Error.WriteLine("Dependency Injection container & MCP Server built successfully.");
 

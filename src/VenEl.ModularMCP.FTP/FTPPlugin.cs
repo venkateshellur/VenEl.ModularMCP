@@ -14,7 +14,7 @@ namespace VenEl.ModularMCP.FTP
 
         public void ConfigureServices(IServiceCollection services, IConfiguration configuration)
         {
-            // Registration for FTP goes here
+            services.AddFtpFeature();
         }
 
         public Task InitializeAsync()
