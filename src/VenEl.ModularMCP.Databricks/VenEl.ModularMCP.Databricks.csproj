@@ -8,7 +8,7 @@
   <PropertyGroup>
     <IsPackable>true</IsPackable>
     <PackageId>VenEl.ModularMCP.Databricks</PackageId>
-    <Version>1.0.1</Version>
+    <Version>1.0.2</Version>
     <Authors>VenEl</Authors>
     <Description>VenEl Modular MCP Plugin - VenEl.ModularMCP.Databricks</Description>
     <OutputType>Exe</OutputType>
