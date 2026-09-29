@@ -19,7 +19,7 @@ namespace VenEl.ModularMCP.GCP
 
         public Task InitializeAsync()
         {
-            Console.WriteLine("[GCP] Initialized dynamically!");
+            Console.Error.WriteLine("[GCP] Initialized dynamically!");
             return Task.CompletedTask;
         }
     }

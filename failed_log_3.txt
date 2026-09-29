@@ -1,0 +1,12 @@
+publish-plugins-to-nuget	Push Plugins to NuGet	﻿2026-09-28T13:26:44.1280994Z ##[group]Run dotnet nuget push "nupkg/*.nupkg" --api-key  --source https://api.nuget.org/v3/index.json --skip-duplicate
+publish-plugins-to-nuget	Push Plugins to NuGet	2026-09-28T13:26:44.1282226Z ^[[36;1mdotnet nuget push "nupkg/*.nupkg" --api-key  --source https://api.nuget.org/v3/index.json --skip-duplicate^[[0m
+publish-plugins-to-nuget	Push Plugins to NuGet	2026-09-28T13:26:44.1345883Z shell: /usr/bin/bash -e {0}
+publish-plugins-to-nuget	Push Plugins to NuGet	2026-09-28T13:26:44.1346165Z env:
+publish-plugins-to-nuget	Push Plugins to NuGet	2026-09-28T13:26:44.1346396Z   DOTNET_ROOT: /usr/share/dotnet
+publish-plugins-to-nuget	Push Plugins to NuGet	2026-09-28T13:26:44.1346671Z ##[endgroup]
+publish-plugins-to-nuget	Push Plugins to NuGet	2026-09-28T13:26:44.4461224Z warn : No API Key was provided and no API Key could be found for 'https://www.nuget.org/api/v2/package'. To save an API Key for a source use the 'setApiKey' command.
+publish-plugins-to-nuget	Push Plugins to NuGet	2026-09-28T13:26:44.4467942Z Pushing VenEl.ModularMCP.Docker.1.0.1.nupkg to 'https://www.nuget.org/api/v2/package'...
+publish-plugins-to-nuget	Push Plugins to NuGet	2026-09-28T13:26:44.4571787Z   PUT https://www.nuget.org/api/v2/package/
+publish-plugins-to-nuget	Push Plugins to NuGet	2026-09-28T13:26:44.7688320Z   Unauthorized https://www.nuget.org/api/v2/package/ 293ms
+publish-plugins-to-nuget	Push Plugins to NuGet	2026-09-28T13:26:44.7737343Z error: Response status code does not indicate success: 401 (An API key must be provided in the 'X-NuGet-ApiKey' header to use this service).
+publish-plugins-to-nuget	Push Plugins to NuGet	2026-09-28T13:26:44.8079476Z ##[error]Process completed with exit code 1.

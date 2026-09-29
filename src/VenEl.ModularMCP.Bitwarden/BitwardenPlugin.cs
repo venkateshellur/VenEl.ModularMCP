@@ -19,7 +19,7 @@ namespace VenEl.ModularMCP.Bitwarden
 
         public Task InitializeAsync()
         {
-            Console.WriteLine("[Bitwarden] Initialized dynamically!");
+            Console.Error.WriteLine("[Bitwarden] Initialized dynamically!");
             return Task.CompletedTask;
         }
     }

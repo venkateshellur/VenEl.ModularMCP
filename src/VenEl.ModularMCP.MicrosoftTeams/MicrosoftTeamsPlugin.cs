@@ -19,7 +19,7 @@ namespace VenEl.ModularMCP.MicrosoftTeams
 
         public Task InitializeAsync()
         {
-            Console.WriteLine("[MicrosoftTeams] Initialized dynamically!");
+            Console.Error.WriteLine("[MicrosoftTeams] Initialized dynamically!");
             return Task.CompletedTask;
         }
     }

@@ -19,7 +19,7 @@ namespace VenEl.ModularMCP.Azure
 
         public Task InitializeAsync()
         {
-            Console.WriteLine("[Azure] Initialized dynamically!");
+            Console.Error.WriteLine("[Azure] Initialized dynamically!");
             return Task.CompletedTask;
         }
     }

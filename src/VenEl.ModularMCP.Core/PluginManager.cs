@@ -56,7 +56,7 @@ namespace VenEl.ModularMCP.Core
             if (!Directory.Exists(pluginsDirectory))
             {
                 Directory.CreateDirectory(pluginsDirectory);
-                Console.WriteLine($"[PluginManager] Created empty plugins directory at: {pluginsDirectory}");
+                Console.Error.WriteLine($"[PluginManager] Created empty plugins directory at: {pluginsDirectory}");
                 return plugins;
             }
 
@@ -86,7 +86,7 @@ namespace VenEl.ModularMCP.Core
                             {
                                 plugins.Add(plugin);
                                 Console.ForegroundColor = ConsoleColor.Green;
-                                Console.WriteLine($"[PluginManager] Successfully Loaded: {plugin.Name}");
+                                Console.Error.WriteLine($"[PluginManager] Successfully Loaded: {plugin.Name}");
                                 Console.ResetColor();
                             }
                         }
@@ -95,7 +95,7 @@ namespace VenEl.ModularMCP.Core
                 catch (Exception ex)
                 {
                     Console.ForegroundColor = ConsoleColor.Red;
-                    Console.WriteLine($"[PluginManager] Failed to load {Path.GetFileName(dllPath)}. Reason: {ex.Message}");
+                    Console.Error.WriteLine($"[PluginManager] Failed to load {Path.GetFileName(dllPath)}. Reason: {ex.Message}");
                     Console.ResetColor();
                 }
             }

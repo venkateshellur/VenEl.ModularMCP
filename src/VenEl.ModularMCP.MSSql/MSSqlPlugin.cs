@@ -18,7 +18,7 @@ namespace VenEl.ModularMCP.MSSql
 
         public Task InitializeAsync()
         {
-            Console.WriteLine("[MSSql] Initialized dynamically!");
+            Console.Error.WriteLine("[MSSql] Initialized dynamically!");
             return Task.CompletedTask;
         }
     }

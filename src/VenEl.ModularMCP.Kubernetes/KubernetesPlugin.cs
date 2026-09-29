@@ -19,7 +19,7 @@ namespace VenEl.ModularMCP.Kubernetes
 
         public Task InitializeAsync()
         {
-            Console.WriteLine("[Kubernetes] Initialized dynamically!");
+            Console.Error.WriteLine("[Kubernetes] Initialized dynamically!");
             return Task.CompletedTask;
         }
     }

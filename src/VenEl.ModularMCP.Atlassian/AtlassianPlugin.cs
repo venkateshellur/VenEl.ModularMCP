@@ -19,7 +19,7 @@ namespace VenEl.ModularMCP.Atlassian
 
         public Task InitializeAsync()
         {
-            Console.WriteLine("[Atlassian] Initialized dynamically!");
+            Console.Error.WriteLine("[Atlassian] Initialized dynamically!");
             return Task.CompletedTask;
         }
     }

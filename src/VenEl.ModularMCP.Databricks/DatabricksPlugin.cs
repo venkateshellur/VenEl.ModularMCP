@@ -19,7 +19,7 @@ namespace VenEl.ModularMCP.Databricks
 
         public Task InitializeAsync()
         {
-            Console.WriteLine("[Databricks] Initialized dynamically!");
+            Console.Error.WriteLine("[Databricks] Initialized dynamically!");
             return Task.CompletedTask;
         }
     }

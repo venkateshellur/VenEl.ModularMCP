@@ -19,7 +19,7 @@ namespace VenEl.ModularMCP.FTP
 
         public Task InitializeAsync()
         {
-            Console.WriteLine("[FTP] Initialized dynamically!");
+            Console.Error.WriteLine("[FTP] Initialized dynamically!");
             return Task.CompletedTask;
         }
     }

@@ -1,0 +1,14 @@
+publish-plugins-to-nuget	Pack All Projects (Core as Tool, Plugins as Libraries)	﻿2026-09-28T12:35:36.6654056Z ##[group]Run for proj in $(find src -name "*.csproj"); do
+publish-plugins-to-nuget	Pack All Projects (Core as Tool, Plugins as Libraries)	2026-09-28T12:35:36.6654847Z ^[[36;1mfor proj in $(find src -name "*.csproj"); do^[[0m
+publish-plugins-to-nuget	Pack All Projects (Core as Tool, Plugins as Libraries)	2026-09-28T12:35:36.6655475Z ^[[36;1m  dotnet pack "$proj" -c Release -o nupkg^[[0m
+publish-plugins-to-nuget	Pack All Projects (Core as Tool, Plugins as Libraries)	2026-09-28T12:35:36.6656310Z ^[[36;1mdone^[[0m
+publish-plugins-to-nuget	Pack All Projects (Core as Tool, Plugins as Libraries)	2026-09-28T12:35:36.6882460Z shell: /usr/bin/bash -e {0}
+publish-plugins-to-nuget	Pack All Projects (Core as Tool, Plugins as Libraries)	2026-09-28T12:35:36.6883083Z env:
+publish-plugins-to-nuget	Pack All Projects (Core as Tool, Plugins as Libraries)	2026-09-28T12:35:36.6883539Z   DOTNET_ROOT: /usr/share/dotnet
+publish-plugins-to-nuget	Pack All Projects (Core as Tool, Plugins as Libraries)	2026-09-28T12:35:36.6884049Z ##[endgroup]
+publish-plugins-to-nuget	Pack All Projects (Core as Tool, Plugins as Libraries)	2026-09-28T12:35:39.3279527Z   Determining projects to restore...
+publish-plugins-to-nuget	Pack All Projects (Core as Tool, Plugins as Libraries)	2026-09-28T12:35:40.6213119Z /home/runner/work/VenEl.ModularMCP/VenEl.ModularMCP/src/VenEl.ModularMCP.FTP/VenEl.ModularMCP.FTP.csproj : error NU1102: Unable to find package VenEl.MCP.FTP with version (>= 1.0.1)
+publish-plugins-to-nuget	Pack All Projects (Core as Tool, Plugins as Libraries)	2026-09-28T12:35:40.6214817Z /home/runner/work/VenEl.ModularMCP/VenEl.ModularMCP/src/VenEl.ModularMCP.FTP/VenEl.ModularMCP.FTP.csproj : error NU1102:   - Found 1 version(s) in nuget.org [ Nearest version: 1.0.0 ]
+publish-plugins-to-nuget	Pack All Projects (Core as Tool, Plugins as Libraries)	2026-09-28T12:35:40.7823274Z   Restored /home/runner/work/VenEl.ModularMCP/VenEl.ModularMCP/src/VenEl.ModularMCP.Shared/VenEl.ModularMCP.Shared.csproj (in 733 ms).
+publish-plugins-to-nuget	Pack All Projects (Core as Tool, Plugins as Libraries)	2026-09-28T12:35:40.8035384Z   Failed to restore /home/runner/work/VenEl.ModularMCP/VenEl.ModularMCP/src/VenEl.ModularMCP.FTP/VenEl.ModularMCP.FTP.csproj (in 733 ms).
+publish-plugins-to-nuget	Pack All Projects (Core as Tool, Plugins as Libraries)	2026-09-28T12:35:40.8439629Z ##[error]Process completed with exit code 1.

@@ -19,7 +19,7 @@ namespace VenEl.ModularMCP.GitHub
 
         public Task InitializeAsync()
         {
-            Console.WriteLine("[GitHub] Initialized dynamically!");
+            Console.Error.WriteLine("[GitHub] Initialized dynamically!");
             return Task.CompletedTask;
         }
     }

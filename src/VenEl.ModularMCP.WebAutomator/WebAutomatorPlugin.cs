@@ -19,7 +19,7 @@ namespace VenEl.ModularMCP.WebAutomator
 
         public Task InitializeAsync()
         {
-            Console.WriteLine("[WebAutomator] Initialized dynamically!");
+            Console.Error.WriteLine("[WebAutomator] Initialized dynamically!");
             return Task.CompletedTask;
         }
     }

@@ -19,7 +19,7 @@ namespace VenEl.ModularMCP.Docker
 
         public Task InitializeAsync()
         {
-            Console.WriteLine("[Docker] Initialized dynamically!");
+            Console.Error.WriteLine("[Docker] Initialized dynamically!");
             return Task.CompletedTask;
         }
     }

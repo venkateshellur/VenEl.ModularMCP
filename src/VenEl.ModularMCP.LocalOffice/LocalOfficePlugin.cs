@@ -19,7 +19,7 @@ namespace VenEl.ModularMCP.LocalOffice
 
         public Task InitializeAsync()
         {
-            Console.WriteLine("[LocalOffice] Initialized dynamically!");
+            Console.Error.WriteLine("[LocalOffice] Initialized dynamically!");
             return Task.CompletedTask;
         }
     }

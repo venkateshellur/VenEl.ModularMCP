@@ -19,7 +19,7 @@ namespace VenEl.ModularMCP.Email
 
         public Task InitializeAsync()
         {
-            Console.WriteLine("[Email] Initialized dynamically!");
+            Console.Error.WriteLine("[Email] Initialized dynamically!");
             return Task.CompletedTask;
         }
     }

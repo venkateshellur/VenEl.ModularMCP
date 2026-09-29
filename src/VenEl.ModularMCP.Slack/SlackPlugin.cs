@@ -19,7 +19,7 @@ namespace VenEl.ModularMCP.Slack
 
         public Task InitializeAsync()
         {
-            Console.WriteLine("[Slack] Initialized dynamically!");
+            Console.Error.WriteLine("[Slack] Initialized dynamically!");
             return Task.CompletedTask;
         }
     }

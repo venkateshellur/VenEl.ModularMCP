@@ -19,7 +19,7 @@ namespace VenEl.ModularMCP.AWS
 
         public Task InitializeAsync()
         {
-            Console.WriteLine("[AWS] Initialized dynamically!");
+            Console.Error.WriteLine("[AWS] Initialized dynamically!");
             return Task.CompletedTask;
         }
     }

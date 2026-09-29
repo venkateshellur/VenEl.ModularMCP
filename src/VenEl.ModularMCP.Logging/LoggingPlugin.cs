@@ -19,7 +19,7 @@ namespace VenEl.ModularMCP.Logging
 
         public Task InitializeAsync()
         {
-            Console.WriteLine("[Logging] Initialized dynamically!");
+            Console.Error.WriteLine("[Logging] Initialized dynamically!");
             return Task.CompletedTask;
         }
     }
