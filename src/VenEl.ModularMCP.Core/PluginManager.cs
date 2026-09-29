@@ -24,11 +24,11 @@ namespace VenEl.ModularMCP.Core
                 assemblyName.Name == "VenEl.MCP.Core" ||
                 assemblyName.Name == "ModelContextProtocol" ||
                 assemblyName.Name == "ModelContextProtocol.Core" ||
-                (assemblyName.Name != None && assemblyName.Name.StartsWith("Microsoft.Extensions.")) ||
-                (assemblyName.Name != None && assemblyName.Name.StartsWith("System.Text.Json")) ||
-                (assemblyName.Name != None && assemblyName.Name.StartsWith("System.Text.Encodings.Web")) ||
-                (assemblyName.Name != None && assemblyName.Name.StartsWith("System.Net.ServerSentEvents")) ||
-                (assemblyName.Name != None && assemblyName.Name.StartsWith("System.IO.Pipelines")))
+                (assemblyName.Name != null && assemblyName.Name.StartsWith("Microsoft.Extensions.")) ||
+                (assemblyName.Name != null && assemblyName.Name.StartsWith("System.Text.Json")) ||
+                (assemblyName.Name != null && assemblyName.Name.StartsWith("System.Text.Encodings.Web")) ||
+                (assemblyName.Name != null && assemblyName.Name.StartsWith("System.Net.ServerSentEvents")) ||
+                (assemblyName.Name != null && assemblyName.Name.StartsWith("System.IO.Pipelines")))
             {
                 return null;
             }
