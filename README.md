@@ -38,7 +38,7 @@ The architecture consists of three main pieces:
 ### CLI Installation
 The Core engine comes with a built-in CLI to manage plugins. To install a plugin locally, simply run:
 ```bash
-venel-mcp plugin install Slack
+venel-modular-mcp plugin install Slack
 ```
 This command automatically unpacks the designated NuGet package and places it in the dynamic loading directory.
 

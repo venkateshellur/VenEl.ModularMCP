@@ -20,7 +20,7 @@ namespace VenEl.ModularMCP.Shared
             Console.ForegroundColor = ConsoleColor.White;
             Console.Error.WriteLine("And then install this plugin via the core CLI:");
             Console.ForegroundColor = ConsoleColor.Cyan;
-            Console.Error.WriteLine($"    venel-mcp plugin install {pluginName}");
+            Console.Error.WriteLine($"    venel-modular-mcp plugin install {pluginName}");
             Console.ResetColor();
         }
     }

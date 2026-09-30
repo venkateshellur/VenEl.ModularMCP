@@ -4,7 +4,7 @@
 **The Problem:** The original `VenEl.MCPAssistant` was a monolith. It bundled 16 different toolsets (AWS, Azure, Atlassian, SQL, etc.) into a single, massive deployment. When users only wanted to use the Atlassian tools, they were still forced to install the entire monolithic package with all its heavy dependencies.
 
 **The Solution:** A true "Hub and Spoke" modular architecture. We are decoupling the heavy monolithic runner into a lightweight, extensible **Modular Host** (`VenEl.ModularMCP`). 
-Users will install the extremely light core host (`dotnet tool install -g VenEl.ModularMCP`), and then dynamically install *only* the specific plugins they need (e.g., `venel-mcp plugin install VenEl.ModularMCP.Atlassian`). 
+Users will install the extremely light core host (`dotnet tool install -g VenEl.ModularMCP`), and then dynamically install *only* the specific plugins they need (e.g., `venel-modular-mcp plugin install VenEl.ModularMCP.Atlassian`). 
 
 ## 2. Phase 1: The Architectural Overhaul (✅ COMPLETED)
 We have successfully decoupled the business logic from the runner.

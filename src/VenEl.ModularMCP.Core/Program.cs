@@ -15,7 +15,7 @@ namespace VenEl.ModularMCP.Core
         static async Task Main(string[] args)
         {
             var userProfile = Environment.GetFolderPath(Environment.SpecialFolder.UserProfile);
-            var userConfigDir = Path.Combine(userProfile, ".venel-mcp");
+            var userConfigDir = Path.Combine(userProfile, ".venel-modular-mcp");
             var pluginDir = Path.Combine(userConfigDir, "plugins");
 
             // CLI Command Parsing for Plugin Installation
@@ -65,7 +65,7 @@ namespace VenEl.ModularMCP.Core
                     options.ServerInfo = new()
                     {
                         Name = "VenEl.ModularMCP",
-                        Version = "1.0.10" // Bumped version
+                        Version = "1.0.11" // Bumped version
                     };
                 })
                 .WithStdioServerTransport();
