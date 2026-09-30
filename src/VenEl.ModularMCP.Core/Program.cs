@@ -14,8 +14,9 @@ namespace VenEl.ModularMCP.Core
     {
         static async Task Main(string[] args)
         {
-            var currentDir = Directory.GetCurrentDirectory();
-            var pluginDir = Path.GetFullPath(Path.Combine(currentDir, "plugins"));
+            var userProfile = Environment.GetFolderPath(Environment.SpecialFolder.UserProfile);
+            var userConfigDir = Path.Combine(userProfile, ".venel-mcp");
+            var pluginDir = Path.Combine(userConfigDir, "plugins");
 
             // CLI Command Parsing for Plugin Installation
             if (args.Length >= 3 && args[0].Equals("plugin", StringComparison.OrdinalIgnoreCase) && args[1].Equals("install", StringComparison.OrdinalIgnoreCase))
@@ -38,8 +39,6 @@ namespace VenEl.ModularMCP.Core
 
             var builder = Host.CreateEmptyApplicationBuilder(settings: null);
 
-            var userProfile = Environment.GetFolderPath(Environment.SpecialFolder.UserProfile);
-            var userConfigDir = Path.Combine(userProfile, ".venel-mcp");
             var userConfigPath = Path.Combine(userConfigDir, "appsettings.json");
 
             builder.Configuration
@@ -66,7 +65,7 @@ namespace VenEl.ModularMCP.Core
                     options.ServerInfo = new()
                     {
                         Name = "VenEl.ModularMCP",
-                        Version = "1.0.8" // Bumped version
+                        Version = "1.0.10" // Bumped version
                     };
                 })
                 .WithStdioServerTransport();
