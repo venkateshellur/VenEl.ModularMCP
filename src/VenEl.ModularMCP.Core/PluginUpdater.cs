@@ -41,7 +41,7 @@ namespace VenEl.ModularMCP.Core
             }
         }
 
-        public static async Task InstallOrUpdatePluginAsync(string pluginName, string pluginDir, bool silent = false)
+        public static async Task<bool> InstallOrUpdatePluginAsync(string pluginName, string pluginDir, bool silent = false)
         {
             try
             {
@@ -52,12 +52,12 @@ namespace VenEl.ModularMCP.Core
                 if (!indexResponse.IsSuccessStatusCode)
                 {
                     if (!silent) { Console.ForegroundColor = ConsoleColor.Red; Console.Error.WriteLine($"[Error] Could not find plugin '{pluginName}' on NuGet."); Console.ResetColor(); }
-                    return;
+                    return false;
                 }
 
                 var indexDoc = JsonDocument.Parse(await indexResponse.Content.ReadAsStringAsync());
                 var versions = indexDoc.RootElement.GetProperty("versions").EnumerateArray().Select(v => v.GetString()).ToList();
-                if (versions.Count == 0) return;
+                if (versions.Count == 0) return false;
                 var latestVersion = versions.Last();
 
                 if (!silent) Console.Error.WriteLine($"Resolving dependencies for {pluginName} v{latestVersion} via NuGet...");
@@ -113,10 +113,12 @@ namespace VenEl.ModularMCP.Core
                     Console.Error.WriteLine($"\n[Success] Successfully installed '{pluginName}' and ALL dependencies into {targetDir}");
                     Console.ResetColor();
                 }
+                return true;
             }
             catch (Exception ex)
             {
                 if (!silent) { Console.ForegroundColor = ConsoleColor.Red; Console.Error.WriteLine($"[Error] Failed to install plugin '{pluginName}': {ex.Message}"); Console.ResetColor(); }
+                return false;
             }
         }
     }

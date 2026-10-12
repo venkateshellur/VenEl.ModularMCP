@@ -100,9 +100,21 @@ namespace VenEl.ModularMCP.Core
                 }
                 catch (Exception ex)
                 {
+                    var pluginName = Path.GetFileNameWithoutExtension(dllPath).Replace("VenEl.ModularMCP.", "");
                     Console.ForegroundColor = ConsoleColor.Red;
                     Console.Error.WriteLine($"[PluginManager] Failed to load {Path.GetFileName(dllPath)}. Reason: {ex.Message}");
+                    Console.Error.WriteLine($"[PluginManager] Attempting self-healing update for {pluginName}...");
                     Console.ResetColor();
+
+                    var success = PluginUpdater.InstallOrUpdatePluginAsync(pluginName, pluginsDirectory).GetAwaiter().GetResult();
+                    if (success)
+                    {
+                        Console.Error.WriteLine($"[PluginManager] Self-healing complete. Please restart the MCP engine to load the newly updated {pluginName} plugin.");
+                    }
+                    else
+                    {
+                        Console.Error.WriteLine($"[PluginManager] Self-healing failed. Skipping {pluginName} for this session.");
+                    }
                 }
             }
 

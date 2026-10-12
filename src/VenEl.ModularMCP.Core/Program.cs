@@ -7,6 +7,7 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using VenEl.MCP.Core.Registration;
 using VenEl.MCP.Core.Extensions;
+using VenEl.ModularMCP.Shared;
 
 namespace VenEl.ModularMCP.Core
 {
@@ -51,10 +52,37 @@ namespace VenEl.ModularMCP.Core
                 .ClearProviders()
                 .SetMinimumLevel(LogLevel.Warning);
 
+            var pluginsToRemove = new System.Collections.Generic.List<IVenElPlugin>();
             foreach (var plugin in plugins)
             {
-                Console.Error.WriteLine($"Configuring Services for: {plugin.Name}");
-                plugin.ConfigureServices(builder.Services, builder.Configuration);
+                try
+                {
+                    Console.Error.WriteLine($"Configuring Services for: {plugin.Name}");
+                    plugin.ConfigureServices(builder.Services, builder.Configuration);
+                }
+                catch (Exception ex)
+                {
+                    Console.ForegroundColor = ConsoleColor.Red;
+                    Console.Error.WriteLine($"[Core] {plugin.Name} threw an error during ConfigureServices: {ex.Message}");
+                    Console.Error.WriteLine($"[Core] Attempting self-healing update for {plugin.Name}...");
+                    Console.ResetColor();
+
+                    var success = PluginUpdater.InstallOrUpdatePluginAsync(plugin.Name, pluginDir).GetAwaiter().GetResult();
+                    if (success)
+                    {
+                        Console.Error.WriteLine($"[Core] Self-healing complete. Please restart the MCP engine to apply the newly updated {plugin.Name} plugin.");
+                    }
+                    else
+                    {
+                        Console.Error.WriteLine($"[Core] Self-healing failed. Disabling {plugin.Name} for this session.");
+                    }
+                    pluginsToRemove.Add(plugin);
+                }
+            }
+
+            foreach (var p in pluginsToRemove)
+            {
+                plugins.Remove(p);
             }
 
             builder.Services.AddCoreSecurity();
@@ -65,7 +93,7 @@ namespace VenEl.ModularMCP.Core
                     options.ServerInfo = new()
                     {
                         Name = "VenEl.ModularMCP",
-                        Version = "1.0.11" // Bumped version
+                        Version = "1.0.14" // Bumped version
                     };
                 })
                 .WithStdioServerTransport();
@@ -76,10 +104,37 @@ namespace VenEl.ModularMCP.Core
 
             Console.Error.WriteLine("Dependency Injection container & MCP Server built successfully.");
 
+            pluginsToRemove.Clear();
             foreach (var plugin in plugins)
             {
-                Console.Error.WriteLine($"Initializing: {plugin.Name}");
-                await plugin.InitializeAsync();
+                try
+                {
+                    Console.Error.WriteLine($"Initializing: {plugin.Name}");
+                    await plugin.InitializeAsync();
+                }
+                catch (Exception ex)
+                {
+                    Console.ForegroundColor = ConsoleColor.Red;
+                    Console.Error.WriteLine($"[Core] {plugin.Name} threw an error during InitializeAsync: {ex.Message}");
+                    Console.Error.WriteLine($"[Core] Attempting self-healing update for {plugin.Name}...");
+                    Console.ResetColor();
+
+                    var success = await PluginUpdater.InstallOrUpdatePluginAsync(plugin.Name, pluginDir);
+                    if (success)
+                    {
+                        Console.Error.WriteLine($"[Core] Self-healing complete. Please restart the MCP engine to apply the newly updated {plugin.Name} plugin.");
+                    }
+                    else
+                    {
+                        Console.Error.WriteLine($"[Core] Self-healing failed. Disabling {plugin.Name} for this session.");
+                    }
+                    pluginsToRemove.Add(plugin);
+                }
+            }
+
+            foreach (var p in pluginsToRemove)
+            {
+                plugins.Remove(p);
             }
 
             Console.Error.WriteLine("Core is running and waiting for MCP connections...");
