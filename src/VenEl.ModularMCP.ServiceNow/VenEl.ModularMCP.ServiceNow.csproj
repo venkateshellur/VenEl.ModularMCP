@@ -2,7 +2,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\VenEl.ModularMCP.Shared\VenEl.ModularMCP.Shared.csproj" />
-    <ProjectReference Include="..\..\..\VenEl.MCPAssistant\VenEl.MCPAssistant\src\VenEl.MCP.ServiceNow\VenEl.MCP.ServiceNow.csproj" />
+    <PackageReference Include="VenEl.MCP.ServiceNow" Version="1.0.0" />
   </ItemGroup>
 
   <PropertyGroup>

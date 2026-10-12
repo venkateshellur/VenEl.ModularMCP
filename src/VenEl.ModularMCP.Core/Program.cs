@@ -93,7 +93,7 @@ namespace VenEl.ModularMCP.Core
                     options.ServerInfo = new()
                     {
                         Name = "VenEl.ModularMCP",
-                        Version = "1.0.14" // Bumped version
+                        Version = "1.0.15" // Bumped version
                     };
                 })
                 .WithStdioServerTransport();
