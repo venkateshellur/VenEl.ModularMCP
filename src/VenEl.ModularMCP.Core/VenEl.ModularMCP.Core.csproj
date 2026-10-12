@@ -22,7 +22,7 @@
     <PackAsTool>true</PackAsTool>
     <ToolCommandName>venel-modular-mcp</ToolCommandName>
     <PackageId>VenEl.ModularMCP</PackageId>
-    <Version>1.0.15</Version>
+    <Version>1.0.16</Version>
     <PackageReadmeFile>README.md</PackageReadmeFile>
     <Description>VenEl.ModularMCP is a highly extensible, dynamically loaded Model Context Protocol (MCP) host engine. It acts as a Hub that discovers, loads, and executes modular plugins (the Spokes) entirely at runtime.</Description>
   </PropertyGroup>

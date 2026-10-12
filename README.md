@@ -8,7 +8,7 @@ This project introduces a "Hub-and-Spoke" architecture for deploying and consumi
 
 ## 🌟 The Vision: ModularMCP vs. AssistantMCP
 
-If you are familiar with our foundational project, **VenEl.AssistantMCP**, you know it is an incredibly powerful, all-in-one monolith. `AssistantMCP` is the ultimate "batteries-included" solution: it ships with all 17+ integrations (AWS, Azure, Docker, GitHub, Slack, MSSql, etc.) baked directly into a single unified server. It is perfect for deployments where you want a comprehensive suite of tools ready to go out-of-the-box.
+If you are familiar with our foundational project, **VenEl.AssistantMCP**, you know it is an incredibly powerful, all-in-one assistant suite. `AssistantMCP` is the ultimate "batteries-included" flagship solution: it ships with all 17+ integrations (AWS, Azure, Docker, GitHub, Slack, MSSql, etc.) baked directly into a single comprehensive server. It is perfect for deployments where you want the full suite of enterprise tools ready to go out-of-the-box.
 
 **VenEl.ModularMCP** takes those exact same world-class integrations and reimagines how they are delivered. 
 
@@ -73,6 +73,7 @@ The following plugins are officially supported and available on NuGet.org. They 
 - `VenEl.ModularMCP.Databricks`
 - `VenEl.ModularMCP.Docker`
 - `VenEl.ModularMCP.Email`
+- `VenEl.ModularMCP.FileManager`
 - `VenEl.ModularMCP.FTP`
 - `VenEl.ModularMCP.GCP`
 - `VenEl.ModularMCP.GitHub`
@@ -81,6 +82,7 @@ The following plugins are officially supported and available on NuGet.org. They 
 - `VenEl.ModularMCP.Logging`
 - `VenEl.ModularMCP.MSSql`
 - `VenEl.ModularMCP.MicrosoftTeams`
+- `VenEl.ModularMCP.ServiceNow`
 - `VenEl.ModularMCP.Slack`
 - `VenEl.ModularMCP.WebAutomator`
 
