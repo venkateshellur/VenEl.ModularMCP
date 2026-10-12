@@ -2,7 +2,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\VenEl.ModularMCP.Shared\VenEl.ModularMCP.Shared.csproj" />
-    <PackageReference Include="VenEl.MCP.FileManager" Version="1.0.1" />
+    <PackageReference Include="VenEl.MCP.FileManager" Version="1.0.2" />
   </ItemGroup>
 
   <PropertyGroup>
